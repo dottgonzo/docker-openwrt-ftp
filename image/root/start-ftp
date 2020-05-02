@@ -35,6 +35,10 @@ if [ -z $PASV_PROMISCUOUS ] ; then
     PASV_PROMISCUOUS=NO
 fi
 
+if [ -z $PORT_PROMISCUOUS ] ; then
+    PORT_PROMISCUOUS=NO
+fi
+
 cat <<EOF> /etc/vsftpd.conf
 
 background=NO
@@ -57,7 +61,7 @@ pasv_enable=YES
 pasv_promiscuous=$PASV_PROMISCUOUS
 
 port_enable=YES
-port_promiscuous=NO
+port_promiscuous=$PORT_PROMISCUOUS
 
 seccomp_sandbox=NO
 
